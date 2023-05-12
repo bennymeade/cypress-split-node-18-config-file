@@ -7,10 +7,11 @@ jobs:
     runs-on: ubuntu-latest
 
     strategy:
-        matrix:
-          os: [ubuntu-latest]
-          node: [16, 18]
-          containers: [1, 2]
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest]
+        node: [16, 18]
+        containers: [1, 2]
 
     steps:
       - name: Checkout
