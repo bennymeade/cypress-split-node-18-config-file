@@ -27,12 +27,22 @@ jobs:
       - name: Install dependencies
         run: yarn install
             
-      - name: Run integration tests
+      - name: Run desktop tests
         uses: cypress-io/github-action@v5
         with:
             install: false
             working-directory: ./
             command: yarn test:cy:run
+        env:
+            SPLIT: ${{ strategy.job-total }}
+            SPLIT_INDEX: ${{ strategy.job-index }}
+      
+      - name: Run mobile tests
+        uses: cypress-io/github-action@v5
+        with:
+            install: false
+            working-directory: ./
+            command: test:cy:run:mobile
         env:
             SPLIT: ${{ strategy.job-total }}
             SPLIT_INDEX: ${{ strategy.job-index }}
