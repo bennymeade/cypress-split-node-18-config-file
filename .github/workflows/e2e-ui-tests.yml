@@ -33,7 +33,7 @@ jobs:
         with:
             install: false
             working-directory: ./
-            command: yarn test:cy:run
+            command: DEBUG=cypress-split yarn test:cy:run
         env:
             SPLIT: ${{ strategy.job-total }}
             SPLIT_INDEX: ${{ strategy.job-index }}
@@ -43,7 +43,7 @@ jobs:
         with:
             install: false
             working-directory: ./
-            command: yarn test:cy:run:mobile
+            command: DEBUG=cypress-split yarn test:cy:run:mobile
         env:
             SPLIT: ${{ strategy.job-total }}
             SPLIT_INDEX: ${{ strategy.job-index }}
