@@ -33,8 +33,7 @@ jobs:
         with:
             install: false
             working-directory: ./
-            command: yarn test:cy:run
-            command-prefix: 'DEBUG=cypress-split'
+            command: DEBUG=cypress-split yarn cypress run --browser chrome
         env:
             SPLIT: ${{ strategy.job-total }}
             SPLIT_INDEX: ${{ strategy.job-index }}
@@ -44,8 +43,7 @@ jobs:
         with:
             install: false
             working-directory: ./
-            command: yarn test:cy:run:mobile
-            command-prefix: 'DEBUG=cypress-split'
+            command: DEBUG=cypress-split yarn cypress run --browser chrome --config-file cypress/configs/cypress.mobile.config.ts
         env:
             SPLIT: ${{ strategy.job-total }}
             SPLIT_INDEX: ${{ strategy.job-index }}
