@@ -1,5 +1,5 @@
 import { defineConfig } from "cypress";
-import cypressSplit from 'cypress-split';
+// import cypressSplit from 'cypress-split';
 import defu from "defu";
 
 import defaultConfig from "../../cypress.config";
@@ -17,10 +17,10 @@ export default {
     )
   ),
 
-  e2e: {
-    setupNodeEvents(on, config) {
-      cypressSplit(on, config)
-      return config
-    },
-  },
+  // e2e: {
+  //   setupNodeEvents(on, config) {
+  //     cypressSplit(on, config)
+  //     return config
+  //   },
+  // },
 };
